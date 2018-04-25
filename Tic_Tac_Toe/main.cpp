@@ -6,6 +6,31 @@
 //  Copyright © 2018 Andy Chu. All rights reserved.
 //
 
+#include <SFML/Graphics.hpp>
+
+int main(){
+    sf::RenderWindow window( sf::VideoMode(640, 480), "Awesome Game");
+    while(window.isOpen()){
+        sf::Event event;
+        //handel all events
+        while (window.pollEvent(event)) {
+            switch (event.type) {
+                case sf::Event::Closed:
+                    window.close();
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+        //update the game
+        window.clear();
+        //draw objects here
+        window.display();
+    }
+}
+
+/*
 #include <iostream>
 
 //-FUNCTION PROTOTYPES
@@ -104,4 +129,4 @@ int CheckWinner()
     else if (board[2] == board[4] && board[4] == board[6]) return player;
     
     else return FALSE;
-}
+}*/
